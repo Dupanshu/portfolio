@@ -1,0 +1,141 @@
+@charset "utf-8";
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+                    /*Portfolio*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+:root{
+  --background-color-light: rgb(231, 232, 224);
+  --background-color-dark: rgb(24, 23, 31);
+  --font-color-dark: #fff;
+  --font-color-light: #000;
+}
+
+.container {
+  width: min(100% - 30px, 1080px);
+  margin-inline: auto;
+}
+
+.light-theme {
+  --bg: var(--background-color-light);
+  --fontcolor: var(--font-color-light);
+  --header-color: #0f0f0f;
+}
+
+.dark-theme {
+  --bg: var(--background-color-dark);
+  --fontcolor: var(--font-color-dark);
+  --header-color: #f0f0f0;
+}
+
+/* Text selection color */
+::-moz-selection {
+  color: #fff;
+  background: #f90;
+}
+
+::selection {
+  color: #fff;
+  background: #f90;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fontcolor);
+  transition: all 150ms ease-in-out;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+                    /*Header*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+header {
+  background-color: transparent;
+  height: 52px;
+  margin-top: 8px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: all 250ms ease-in-out;
+  z-index: 5000;
+}
+
+header::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 11px;
+  z-index: 1000;
+}
+
+.scrolled {
+  background-color: var(--header-color);
+  margin-top: 0px;
+}
+
+header.scrolled::before {
+  background-color: var(--header-color);
+  transition: all 100ms ease-in-out;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.theme {
+  color: #4d36fe;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background: none;
+  border-radius: 25px;
+  transition: all 150ms ease-in-out;
+}
+
+.theme:hover {
+  background-color: #4d36fe;
+  color: #fff !important;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+                    /*about*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+.about {
+  background: url("../media/banner.jpg") center center / cover no-repeat;
+  height: 58vh;
+  width: 100%;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+                    /*passion*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+.passion {
+  height: 100vh;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+                    /*projects*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+                    /*resume-link*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+                    /*get-in-touch*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+footer {
+  background-color: rgb(24, 23, 31);
+  color: #fff;
+  transition: all 150ms ease-in-out;
+  width: 100%;
+  margin-top: auto;
+  height: 12.5rem;
+}
