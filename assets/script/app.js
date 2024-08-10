@@ -7,6 +7,7 @@ const footerBg = document.querySelector('footer');
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('nav ul li a');
 const h2 = document.querySelector('.header h2');
+const footerI = document.querySelector('footer .go-up i');
 
 // light and dark theme changer
 themeButton.addEventListener('click', () => {
@@ -15,10 +16,10 @@ themeButton.addEventListener('click', () => {
 
   const className = body.className;
   if(className.includes("light-theme")){
-    themeButton.innerHTML = '<i class="fa-regular fa-moon"></i>';
+    themeButton.innerHTML = '<i class="fa-solid fa-moon"></i>';
     themeButton.style.color = "#42806E";
   } else {
-    themeButton.innerHTML = '<i class="fa-regular fa-sun"></i>';
+    themeButton.innerHTML = '<i class="fa-solid fa-sun"></i>';
     themeButton.style.color = "#f90";
   }
 })
@@ -53,6 +54,11 @@ document.addEventListener('scroll', () => {
 })
 
 
+// go to the top function
 h2.addEventListener('click', () => {
+  window.scrollTo(0, 0);
+})
+
+footerI.addEventListener('click', () => {
   window.scrollTo(0, 0);
 })
