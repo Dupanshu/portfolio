@@ -7,7 +7,7 @@ const footerBg = document.querySelector('footer');
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('nav ul li a');
 const h2 = document.querySelector('.header h2');
-const footerI = document.querySelector('footer .go-up i');
+const footerI = document.querySelector('footer .copyright i');
 
 // light and dark theme changer
 themeButton.addEventListener('click', () => {
