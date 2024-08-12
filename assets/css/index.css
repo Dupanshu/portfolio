@@ -153,15 +153,34 @@ header {
                     /*about*/
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .about {
+  background-color: var(--section-clr);
+  padding: 100px 0px;
+}
+
+.about .tldr {
+  padding: 20px;
   background-color: var(--bg);
-  
+}
+
+.inside-about {
+  width: 630px;
+  word-wrap: break-word;
+}
+
+.about .inside-about h1, 
+
+.about .inside-about h1 {
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  font-size: 32px;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
                     /*passion*/
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .passion {
-  background-color: var(--section-clr);
+  background-color: var(--bg);
+  padding: 100px 0px;
   
 
 }
@@ -170,14 +189,18 @@ header {
                     /*experience*/
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .experience {
-  background-color: var(--bg);
+  background-color: var(--section-clr);
+  padding: 100px 0px;
+
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
                     /*projects*/
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .projects {
-  background-color: var(--section-clr);
+  background-color: var(--bg);
+  padding: 100px 0px;
+
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -211,7 +234,8 @@ header {
                     /*get-in-touch*/
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .get-in-touch{
-  background-color: var(--bg);
+  background-color: var(--section-clr);
+  padding: 100px 0px;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -277,16 +301,19 @@ footer {
   visibility: visible;
 }
 
-.footer-container .go-up p {
-  display: inline-block;
-  border-left: 1px solid #fff;
-  padding-right: 0px !important;
-}
-
 .footer-container .go-up a, 
 .footer-container .go-up p {
   letter-spacing: 0.2px;
   padding: 8px 10px;
+  color: rgba(255 255 255 / 80%);
+  text-align: center;
+  font-size: 16px;
+}
+
+.footer-container .go-up p {
+  display: inline-block;
+  border-left: 1px solid #fff;
+  padding-right: 0px !important;
 }
 
 /* data tool tip */
