@@ -8,6 +8,9 @@ const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('nav ul li a');
 const h2 = document.querySelector('.header h2');
 const footerI = document.querySelector('footer .copyright i');
+const bannerH1 = document.querySelector('.banner .overlay1 .banner-txt h1');
+const bannerText = document.querySelector('.banner .overlay1 .banner-txt p');
+
 
 // light and dark theme changer
 themeButton.addEventListener('click', () => {
@@ -62,3 +65,11 @@ h2.addEventListener('click', () => {
 footerI.addEventListener('click', () => {
   window.scrollTo(0, 0);
 })
+
+
+// banner text animations
+window.addEventListener('load', function() {
+  bannerH1.classList.add('animateH1');
+  bannerText.classList.add('textAnimate');
+});
+
