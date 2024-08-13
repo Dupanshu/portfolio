@@ -145,7 +145,7 @@ header {
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .banner {
   background: url("../media/banner.jpg") center center / cover no-repeat;
-  height: 50vw;
+  height: 49vw;
   width: 100%;
   transition: all ease-in-out;
 }
@@ -158,6 +158,7 @@ header {
   font-size: 60px;
   font-weight: 300;
   letter-spacing: 3px;
+  line-height: 1.1;
   text-transform: uppercase;
   color: #fff !important;
 }
