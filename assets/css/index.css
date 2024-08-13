@@ -148,6 +148,7 @@ header {
   height: 49vw;
   width: 100%;
   transition: all ease-in-out;
+  position: relative;
 }
 
 .banner .overlay1 {
@@ -172,8 +173,8 @@ header {
   animation-fill-mode: both;
   -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;
-  -webkit-animation-delay: 0.3s;
-  animation-delay: 0.3s;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
 }
 
 @keyframes fadeInDown {
@@ -215,8 +216,8 @@ header {
   animation-fill-mode: both;
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
-  -webkit-animation-delay: 0.3s;
-  animation-delay: 0.3s;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
 }
 
 @keyframes fadeInUp {
@@ -241,6 +242,21 @@ header {
   }
 }
 
+.banner .clickable-overlay {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  cursor: pointer;
+  font-size: 22px;
+  z-index: 200;
+  color: rgb(255 255 255 / 70%);
+  transition: color 250ms ease-in-out;
+}
+
+.banner .clickable-overlay:hover {
+  color: #fff;
+}
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
                     /*about*/
@@ -262,15 +278,9 @@ header {
   align-items: center;
 }
 
-.about .inside-about .about-box .img {
+.about .inside-about .about-box img{
   width: auto;
   height: 229px;
-  transition: all 150px ease-in-out
-}
-
-.about .inside-about .about-box .img img{
-  max-height: 100%;
-  max-width: 100%;
   border-radius: 14px;
 }
 
