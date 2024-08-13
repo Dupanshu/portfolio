@@ -422,11 +422,17 @@ header {
   display: block;
   margin: 16px;
   border: 1px solid var(--fontcolor);
-  background-color: var(--bg);
+  background-color: var(--tldr-bg);
   color: var(--fontcolor);
   padding: 15px;
   width: 100%;
   border-radius: 6px;
+}
+
+.get-in-touch form input[type="text"]:focus,
+.get-in-touch form input[type="email"]:focus,
+.get-in-touch form textarea:focus {
+  background-color: rgba(127 127 127 / 20%);
 }
 
 .get-in-touch form textarea {
