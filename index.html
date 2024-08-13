@@ -45,6 +45,7 @@
         </div>
       </div>
     </header>
+
     <main>
       
       <!-- banner -->
@@ -126,9 +127,28 @@
 
       <!-- get in touch-->
       <section class="get-in-touch" id="reachout">
-        <h1>Get-to-know</h1>
+        <div class="container child-div-center">
+          <h1>Get in touch!</h1>
+          <p>Got a great idea or just want to chat? Drop me a message-I'd love to hear from you!</p>
+
+          <!-- form structure -->
+          <form action="https://formsubmit.co/rangrayd5@gmail.com" method="POST"
+          name="get-in-touch" class="child-div-center">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="_subject" placeholder="Subject of email">
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <input type="hidden" name="_autoresponse" value="Thank you for 
+            reaching out! I appreciate your message and will get back to you 
+            as soon as possible. Looking forward to connecting with you soon!">
+            <button type="submit">Send Message</button>
+          </form>
+
+        </div>
       </section>
     </main>
+
     <footer>
       <div class="container footer-container flex flex-column">
         <div class="flex flex-row space-between">
