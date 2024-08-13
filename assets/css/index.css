@@ -333,6 +333,10 @@ header {
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
                     /*passion*/
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+.passion, .experience, .projects, .get-in-touch {
+  display: none;
+}
+
 .passion {
   background-color: var(--bg);
   padding: 60px 0px;
