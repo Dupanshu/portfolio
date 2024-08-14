@@ -11,6 +11,7 @@ const footerI = document.querySelector('footer .copyright i');
 const bannerH1 = document.querySelector('.banner .overlay1 .banner-txt h1');
 const bannerText = document.querySelector('.banner .overlay1 .banner-txt p');
 const myForm = document.getElementById('my-form');
+const thankyouPart = document.querySelector('.get-in-touch .thankyou-msg');
 
 
 // light and dark theme changer
@@ -102,11 +103,11 @@ myForm.addEventListener('submit', async (event) => {
     });
 
     if (response.ok) {
-      myForm.style.display = 'none';
-
       setTimeout(() => {
-        window.location.href = 'https://dupanshu.github.io/portfolio/';
-      }, 1500);
+        window.location.href = 'https://dupanshu.github.io/portfolio/#reachout';
+        myForm.classList.add('remove-display');
+        thankyouPart.classList.add('show-display');
+      }, 1000);
     } else {
       // Handle response errors
       console.error('Form submission error:', response.status, 

@@ -132,18 +132,22 @@
           <p>Got a great idea or just want to chat? Drop me a message-I'd love to hear from you!</p>
 
           <!-- form structure -->
-          <form id="my-form" action="https://formsubmit.co/5cfa657df1f878c93436542a7fbd7f6f" method="POST"
+          <form id="my-form" action="https://api.web3forms.com/submit" method="POST"
           name="get-in-touch" class="child-div-center">
-            <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="access_key" value="1915566a-a26b-4476-9e13-359fe09d64ac">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <input type="text" name="_subject" placeholder="Subject of email">
             <textarea name="message" placeholder="Your Message" required></textarea>
-            <input type="hidden" name="_autoresponse" value="Thank you for 
-            reaching out! I appreciate your message and will get back to you 
-            as soon as possible. Looking forward to connecting with you soon!">
             <button type="submit">Send Message</button>
           </form>
+
+          <div class="thankyou-msg">
+            <p>Thank you for 
+              reaching out! I appreciate your message and will get back to you 
+              as soon as possible. Looking forward to connecting with you soon!
+            </p>
+          </div>
 
         </div>
       </section>
