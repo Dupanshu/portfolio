@@ -136,8 +136,15 @@ header {
   letter-spacing: 0.2px;
   cursor: pointer;
 }
+
 .header nav ul li a:hover, .header nav ul li a.active {
   background-color: #42806E;
+}
+
+.header nav ul li a.hovered {
+  background: none;
+  color: #42806E !important;
+  transition: color 150ms ease-in-out;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */

@@ -42,6 +42,19 @@ document.addEventListener('scroll', () => {
 })
 
 
+// hover effect for the nav bar changes at 0 scroll
+navLinks.forEach(link => {
+  link.addEventListener('mouseenter', () => {
+    if (window.scrollY === 0) {
+      link.classList.add('hovered');
+    }
+  });
+
+  link.addEventListener('mouseleave', () => {
+    link.classList.remove('hovered');
+  });
+});
+
 //navbar active state event listener
 document.addEventListener('scroll', () => {
   let index = sections.length;
@@ -68,7 +81,7 @@ footerI.addEventListener('click', () => {
 
 
 // banner text animations
-window.addEventListener('load', function() {
+window.addEventListener('load', () => {
   bannerH1.classList.add('animateH1');
   bannerText.classList.add('textAnimate');
 });
