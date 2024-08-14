@@ -103,7 +103,7 @@ myForm.addEventListener('submit', (event) => {
       myForm.style.display = 'none';
       // Redirect to the same page
       setTimeout(() => {
-        window.location.href = "https://dupanshu.github.io/portfolio/#reachout";
+        window.location.href = "https://dupanshu.github.io/portfolio/";
       }, 1500);
 
     } else {
