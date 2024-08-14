@@ -93,7 +93,7 @@ myForm.addEventListener('submit', (event) => {
   // Prevent the default form submission
   event.preventDefault();
 
-  let formData = new FormData(this);
+  let formData = new FormData(event.target);
 
   fetch(this.action, {
     method: 'POST',
