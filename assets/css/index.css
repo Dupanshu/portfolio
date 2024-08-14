@@ -485,10 +485,14 @@ header {
 }
 
 .get-in-touch .thankyou-msg p {
-  font-size: 22px;
-  font-weight: 500;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  padding: 60px 0px;
+  font-weight: 400;
   text-align: center;
+  width: 50ch;
   color: var(--fontcolor);
+  line-height: 30px;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */

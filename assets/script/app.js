@@ -12,6 +12,7 @@ const bannerH1 = document.querySelector('.banner .overlay1 .banner-txt h1');
 const bannerText = document.querySelector('.banner .overlay1 .banner-txt p');
 const myForm = document.getElementById('my-form');
 const thankyouPart = document.querySelector('.get-in-touch .thankyou-msg');
+const myFormPara = document.querySelector('.get-in-touch p');
 
 
 // light and dark theme changer
@@ -104,10 +105,11 @@ myForm.addEventListener('submit', async (event) => {
 
     if (response.ok) {
       setTimeout(() => {
-        window.location.href = 'https://dupanshu.github.io/portfolio/#reachout';
         myForm.classList.add('remove-display');
         thankyouPart.classList.add('show-display');
-      }, 1000);
+        myFormPara.style.display = 'none';
+        thankyouPart.classList.add('textAnimate');
+      }, 100);
     } else {
       // Handle response errors
       console.error('Form submission error:', response.status, 
