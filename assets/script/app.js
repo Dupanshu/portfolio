@@ -10,6 +10,7 @@ const h2 = document.querySelector('.header h2');
 const footerI = document.querySelector('footer .copyright i');
 const bannerH1 = document.querySelector('.banner .overlay1 .banner-txt h1');
 const bannerText = document.querySelector('.banner .overlay1 .banner-txt p');
+const myForm = document.querySelector('.get-in-touch form');
 
 
 // light and dark theme changer
@@ -25,7 +26,7 @@ themeButton.addEventListener('click', () => {
     themeButton.innerHTML = '<i class="fa-solid fa-sun"></i>';
     themeButton.style.color = "#f90";
   }
-})
+});
 
 //header scroll design changer
 document.addEventListener('scroll', () => {
@@ -39,7 +40,7 @@ document.addEventListener('scroll', () => {
           header.classList.remove('scrolled');
       }
   }
-})
+});
 
 
 // hover effect for the nav bar changes at 0 scroll
@@ -67,22 +68,49 @@ document.addEventListener('scroll', () => {
   if(window.scrollY === 0){
     navLinks[index].classList.remove('active');
   }
-})
+});
 
 
 // go to the top function
 h2.addEventListener('click', () => {
   window.scrollTo(0, 0);
-})
+});
 
 footerI.addEventListener('click', () => {
   window.scrollTo(0, 0);
-})
+});
 
 
 // banner text animations
 window.addEventListener('load', () => {
   bannerH1.classList.add('animateH1');
   bannerText.classList.add('textAnimate');
+});
+
+
+//handle form submition
+myForm.addEventListener('submit', (event) => {
+  // Prevent the default form submission
+  event.preventDefault();
+
+  let formData = new FormData(this);
+
+  fetch(this.action, {
+    method: 'POST',
+    body: formData
+  }).then(response => {
+    if (response.ok) {
+      myForm.style.display = 'none';
+      // Redirect to the same page
+      setTimeout(() => {
+        window.location.href = "https://dupanshu.github.io/portfolio/#reachout";
+      }, 1500);
+
+    } else {
+      console.error('form submission error:', response.statusText);
+    }
+  }).catch(error => {
+    console.error('Error in form section:', error);
+  });
 });
 
