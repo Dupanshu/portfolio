@@ -10,7 +10,7 @@ const h2 = document.querySelector('.header h2');
 const footerI = document.querySelector('footer .copyright i');
 const bannerH1 = document.querySelector('.banner .overlay1 .banner-txt h1');
 const bannerText = document.querySelector('.banner .overlay1 .banner-txt p');
-const myForm = document.querySelector('.get-in-touch form');
+const myForm = document.getElementById('my-form');
 
 
 // light and dark theme changer
@@ -89,28 +89,32 @@ window.addEventListener('load', () => {
 
 
 //handle form submition
-myForm.addEventListener('submit', (event) => {
+myForm.addEventListener('submit', async (event) => {
   // Prevent the default form submission
   event.preventDefault();
 
   let formData = new FormData(event.target);
 
-  fetch(this.action, {
-    method: 'POST',
-    body: formData
-  }).then(response => {
+  try {
+    const response = await fetch(event.target.action, {
+      method: 'POST',
+      body: formData
+    });
+
     if (response.ok) {
       myForm.style.display = 'none';
-      // Redirect to the same page
-      setTimeout(() => {
-        window.location.href = "https://dupanshu.github.io/portfolio/";
-      }, 1500);
 
+      setTimeout(() => {
+        window.location.href = 'https://dupanshu.github.io/portfolio/';
+      }, 1500);
     } else {
-      console.error('form submission error:', response.statusText);
+      // Handle response errors
+      console.error('Form submission error:', response.status, 
+        response.statusText);
     }
-  }).catch(error => {
+  } catch (error) {
+    // Handle fetch errors
     console.error('Error in form section:', error);
-  });
+  }
 });
 
