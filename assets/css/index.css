@@ -106,12 +106,13 @@ header {
   cursor: pointer;
   background: none;
   border-radius: 25px;
-  transition: all 150ms ease-in-out;
+  transition: all 500ms ease-in-out;
 }
 
 .theme:hover {
   background-color: #42806E;
   color: #fff !important;
+  transition: all 150ms ease-in-out;
 }
 
 .header h2 {
@@ -274,6 +275,7 @@ header {
 .about {
   background-color: var(--section-clr);
   padding: 60px 0px;
+  transition: all 150ms ease-in-out;
 }
 
 .about .inside-about h1 {
@@ -347,8 +349,7 @@ header {
 .passion {
   background-color: var(--bg);
   padding: 60px 0px;
-  
-
+  transition: all 150ms ease-in-out;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -357,7 +358,7 @@ header {
 .experience {
   background-color: var(--section-clr);
   padding: 60px 0px;
-
+  transition: all 150ms ease-in-out;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -366,8 +367,131 @@ header {
 .projects {
   background-color: var(--bg);
   padding: 60px 0px;
-
+  transition: all 150ms ease-in-out;
 }
+
+.projects .inside-projects h1 {
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  font-size: 32px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.projects .inside-projects .project-container {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* carousel */
+.projects .inside-projects .project-container .project-div .carousel {
+  height: 200px;
+  width: 400px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.projects .inside-projects .project-container .project-div .carousel .carousel_track-container {
+  position: relative;
+  height: 100%;
+}
+
+.projects .inside-projects .project-container .project-div .carousel .carousel_track-container .carousel_track {
+  height: 100%;
+  width: 100%;
+  list-style: none;
+  transition: transform 250ms ease-in;
+  position: relative;
+}
+
+.projects .inside-projects .project-container .project-div .carousel .carousel_track-container .carousel_slide {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  min-width: 100%;
+  flex: 0 0 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+.projects .inside-projects .project-container .project-div .carousel .carousel_image {
+  width: 100%;
+  height: 100%;
+}
+
+.projects .inside-projects .project-container .project-div .carousel .carousel_button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  cursor: pointer;
+  z-index: 2000;
+}
+
+.projects .inside-projects .project-container .project-div .carousel .carousel_button--left {
+  left: 10px;
+}
+
+.projects .inside-projects .project-container .project-div .carousel .carousel_button--right {
+  right: 10px;
+}
+
+.projects .inside-projects .project-container .project-div .carousel .carousel_button i {
+  font-size: 25px;
+  color: var(--fontcolor);
+  transition: color 150ms ease-in-out;
+}
+
+.projects .inside-projects .project-container .project-div .carousel .carousel_button i:hover {
+  color: #42806E;
+}
+/* carousel done */
+
+.projects .inside-projects .project-container .project-div .hat h3 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.projects .inside-projects .project-container .project-div .hat .hatp p {
+  background-color: #42806E;
+  color: var(--footer-txt);
+  line-height: 24px;
+  font-size: 11px;
+  font-family: "Open Sans", sans-serif;
+  padding: 0px 12px;
+  border-radius: 14px;
+  text-align: center;
+  font-weight: 600;
+  cursor: default;
+}
+
+.projects .inside-projects .project-container .project-div .project-btn {
+  margin-top: 10px;
+  display: block;
+  text-align: center;
+  max-width: 170px;
+  cursor: pointer;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  font-weight: 600;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  color: var(--fontcolor);
+  border: 1px solid #42806E !important;
+  border-radius: 6px;
+  position: relative;
+  transition: all 150ms ease-in-out;
+  background: none;
+}
+
+.projects .inside-projects .project-container .project-div .project-btn:hover {
+  color: #fff;
+  background-color: #42806E;
+}
+
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
                     /*resume-link*/
@@ -402,6 +526,7 @@ header {
 .get-in-touch {
   background-color: var(--section-clr);
   padding: 40px 0px;
+  transition: all 150ms ease-in-out;
 }
 
 .get-in-touch h1 {
@@ -463,7 +588,7 @@ header {
   border: 2px solid #42806E !important;
   border-radius: 6px;
   position: relative;
-  transition: all 250ms ease;
+  transition: all 250ms ease-in-out;
   background: none;
 }
 

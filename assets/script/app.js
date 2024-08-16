@@ -13,7 +13,7 @@ const bannerText = document.querySelector('.banner .overlay1 .banner-txt p');
 const myForm = document.getElementById('my-form');
 const thankyouPart = document.querySelector('.get-in-touch .thankyou-msg');
 const myFormPara = document.querySelector('.get-in-touch p');
-
+const projectContainer = document.querySelector('.projects .inside-projects .project-container');
 
 // light and dark theme changer
 themeButton.addEventListener('click', () => {
@@ -121,3 +121,176 @@ myForm.addEventListener('submit', async (event) => {
   }
 });
 
+
+/* ----------------------------------------------------------------------
+------------------------------carousel-----------------------------------
+------------------------------------------------------------------------ */
+
+// Function to set the position of slides
+const setSlidePosition = (slide, index) => {
+  const slideWidth = slide.getBoundingClientRect().width;
+  slide.style.left = slideWidth * index + 'px';
+};
+
+// Function to move to a specific slide
+const moveToSlide = (track, currentSlide, targetSlide) => {
+  track.style.transform = `translateX(-${targetSlide.style.left})`;
+  currentSlide.classList.remove('current_slide');
+  targetSlide.classList.add('current_slide');
+};
+
+// Function to initialize carousels
+const initializeCarousels = () => {
+  const carousels = document.querySelectorAll('.carousel');
+
+  carousels.forEach(carousel => {
+    const track = carousel.querySelector('.carousel_track');
+    const slides = Array.from(track.children);
+    const previousButton = carousel.querySelector('.carousel_button--left');
+    const nextButton = carousel.querySelector('.carousel_button--right');
+
+    // Set positions of the slides
+    slides.forEach(setSlidePosition);
+
+    // Attach event listeners to buttons
+    previousButton.addEventListener('click', () => {
+      const currentSlide = track.querySelector('.current_slide');
+      const prevSlide = currentSlide.previousElementSibling;
+
+      if (prevSlide) {
+        moveToSlide(track, currentSlide, prevSlide);
+      }
+    });
+
+    nextButton.addEventListener('click', () => {
+      const currentSlide = track.querySelector('.current_slide');
+      const nextSlide = currentSlide.nextElementSibling;
+
+      if (nextSlide) {
+        moveToSlide(track, currentSlide, nextSlide);
+      }
+    });
+  });
+};
+
+// Method to fetch projects from the CDN link
+const URL = 'https://cdn.jsdelivr.net/gh/dupanshu/cdn-projects/projects.json';
+
+async function getProjects(endpoint) {
+  try {
+    const result = await fetch(endpoint);
+
+    if (!result.ok) {
+      throw new Error(`${result.statusText} (${result.status})`);
+    }
+
+    const data = await result.json();
+    for (let i = 0; i < data.results.length; i++) {
+      const project = data.results[i];
+
+      const images = project.images[0] || {};
+      const tags = project.tags[0] || {};
+      const buttons = project.buttons[0] || {};
+
+      /* images */
+      const image1 = images.image1 || '';
+      const image2 = images.image2 || '';
+      const image3 = images.image3 || '';
+      const image4 = images.image4 || '';
+
+      const name = project.name || '';
+
+      /* tags */
+      const tag1 = tags.tag1 || '';
+      const tag2 = tags.tag2 || '';
+      const tag3 = tags.tag3 || '';
+      const tag4 = tags.tag4 || '';
+
+      /* buttons */
+      const demo = buttons.demo || '';
+      const source = buttons.source || '';
+
+      /* Create and display the project */
+      displayProjects(image1, image2, image3, image4, name, tag1, tag2, tag3, tag4, demo, source);
+    };
+
+    // Initialize carousels after projects are added
+    initializeCarousels();
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+// Method to create a div for multiple project elements
+function displayProjects(image1, image2, image3, image4, name, tag1, tag2, tag3, tag4, demo, source) {
+  const projectDiv = document.createElement('div');
+
+  projectDiv.classList.add('project-div');
+
+  // Build the HTML for the project
+  let carouselSlides = '';
+
+  // Add a slide for each image if it exists
+  if (image1) {
+    carouselSlides += `
+      <li class="carousel_slide current_slide">
+        <img class="carousel_image" src="${image1}" alt="project_img">
+      </li>`;
+  }
+  if (image2) {
+    carouselSlides += `
+      <li class="carousel_slide">
+        <img class="carousel_image" src="${image2}" alt="project_img">
+      </li>`;
+  }
+  if (image3) {
+    carouselSlides += `
+      <li class="carousel_slide">
+        <img class="carousel_image" src="${image3}" alt="project_img">
+      </li>`;
+  }
+  if (image4) {
+    carouselSlides += `
+      <li class="carousel_slide">
+        <img class="carousel_image" src="${image4}" alt="project_img">
+      </li>`;
+  }
+
+  projectDiv.innerHTML = `
+    <div class="project-bg"></div>
+    
+    <!-- carousel -->
+    <div class="carousel">
+      <button class="carousel_button carousel_button--left">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <div class="flex flex-row carousel_track-container">
+        <ul class="carousel_track">
+          ${carouselSlides}
+        </ul>
+      </div>
+      <button class="carousel_button carousel_button--right">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <div class="flex flex-row space-between hat">
+      <h3>${name}</h3>
+      <div class="flex flex-row hatp gap-5">
+        <p>${tag1}</p>
+        <p>${tag2}</p>
+        <p>${tag3}</p>
+        <p>${tag4}</p>
+      </div>
+    </div>
+
+    <div class="flex flex-row gap">
+      <button class="project-btn"><a href="${demo}" target="_blank">Demo</a></button>
+      <button class="project-btn"><a href="${source}" target="_blank">Source</a></button>
+    </div>
+  `;
+  projectContainer.appendChild(projectDiv);
+}
+
+// Fetch and display projects
+getProjects(URL);
