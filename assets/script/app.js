@@ -271,7 +271,7 @@ function displayProjects(image1, image2, image3, image4, name, tag1, tag2, tag3,
   let demoButton = '';
   if(demo) {
     demoButton += `
-    <button class="project-btn"><a href="${demo}" target="_blank">Demo</a></button>
+    <a href="${demo}" target="_blank"><button class="project-btn">Demo</button></a>
     `
   }
 
@@ -323,7 +323,7 @@ function displayProjects(image1, image2, image3, image4, name, tag1, tag2, tag3,
 
     <div class="flex flex-row gap">
     ${demoButton}
-      <button class="project-btn"><a href="${source}" target="_blank">Source</a></button>
+      <a href="${source}" target="_blank"><button class="project-btn">Source</button></a>
     </div>
   `;
   projectContainer.appendChild(projectDiv);
