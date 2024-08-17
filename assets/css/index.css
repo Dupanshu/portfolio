@@ -352,7 +352,6 @@ header {
   background-color: var(--bg);
   padding: 60px 0px;
   transition: all 150ms ease-in-out;
-  display: none;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -362,7 +361,6 @@ header {
   background-color: var(--section-clr);
   padding: 60px 0px;
   transition: all 150ms ease-in-out;
-  display: none;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
