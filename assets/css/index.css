@@ -25,6 +25,7 @@
   --section-clr: rgb(235, 236, 228);
   --tldr-bg: rgb(225, 227, 219);
   --tldr-txt: rgb(0 0 0 / 70%);
+  --project-bg: rgb(66 128 110 / 20%);
 }
 
 .dark-theme {
@@ -36,6 +37,7 @@
   --header-scroll-color: #000;
   --tldr-bg: rgb(29, 28, 36);
   --tldr-txt: rgb(255 255 255 / 70%);
+  --project-bg: #272831;
 }
 
 /* Text selection color */
@@ -350,6 +352,7 @@ header {
   background-color: var(--bg);
   padding: 60px 0px;
   transition: all 150ms ease-in-out;
+  display: none;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -359,6 +362,7 @@ header {
   background-color: var(--section-clr);
   padding: 60px 0px;
   transition: all 150ms ease-in-out;
+  display: none;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -368,6 +372,11 @@ header {
   background-color: var(--bg);
   padding: 60px 0px;
   transition: all 150ms ease-in-out;
+}
+
+.projects .inside-projects {
+  margin-inline: auto;
+  width: min(100% - 30px, 1322px);
 }
 
 .projects .inside-projects h1 {
@@ -383,13 +392,41 @@ header {
   gap: 2rem;
 }
 
+.projects .inside-projects .project-container .project-div {
+  position: relative;
+  z-index: 1;
+  padding: 8px 10px;
+  display: inline-block;
+}
+
+.projects .inside-projects .project-container .project-div::after {
+  content: "";
+  position: absolute;
+  background-color: var(--project-bg);
+  top: -0.25rem;
+  left: 0;
+  bottom: -0.25rem;
+  width: 100%;
+  z-index: -1;
+  border-radius: 10px;
+  transform: scaleX(0.95) scaleY(0.90);
+  transform-origin: left bottom;
+  transition: all 200ms ease-in;
+}
+
+.projects .inside-projects .project-container .project-div:hover::after {
+  transform: scaleX(1) scaleY(1);
+}
+
 /* carousel */
 .projects .inside-projects .project-container .project-div .carousel {
   height: 200px;
   width: 400px;
   position: relative;
   overflow: hidden;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  background-color: #1e1f26;
 }
 
 .projects .inside-projects .project-container .project-div .carousel .carousel_track-container {
@@ -416,8 +453,9 @@ header {
 }
 
 .projects .inside-projects .project-container .project-div .carousel .carousel_image {
-  width: 100%;
+  width: auto;
   height: 100%;
+  margin: 0 auto;
 }
 
 .projects .inside-projects .project-container .project-div .carousel .carousel_button {
@@ -427,6 +465,10 @@ header {
   background: transparent;
   cursor: pointer;
   z-index: 2000;
+}
+
+.projects .inside-projects .project-container .project-div .carousel .carousel_button.hidden {
+  display: none;
 }
 
 .projects .inside-projects .project-container .project-div .carousel .carousel_button--left {
@@ -439,7 +481,7 @@ header {
 
 .projects .inside-projects .project-container .project-div .carousel .carousel_button i {
   font-size: 25px;
-  color: var(--fontcolor);
+  color: #aaa;
   transition: color 150ms ease-in-out;
 }
 
@@ -448,11 +490,16 @@ header {
 }
 /* carousel done */
 
+.projects .inside-projects .project-container .project-div .hat {
+  max-width: 400px;
+}
+
 .projects .inside-projects .project-container .project-div .hat h3 {
   font-family: "Open Sans", sans-serif;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 24px;
+  color: var(--fontcolor) !important;
 }
 
 .projects .inside-projects .project-container .project-div .hat .hatp p {
@@ -480,7 +527,7 @@ header {
   font-size: 16px;
   font-family: "Open Sans", sans-serif;
   color: var(--fontcolor);
-  border: 1px solid #42806E !important;
+  border: 2px solid #42806E !important;
   border-radius: 6px;
   position: relative;
   transition: all 150ms ease-in-out;

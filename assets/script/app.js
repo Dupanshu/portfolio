@@ -224,44 +224,84 @@ async function getProjects(endpoint) {
 // Method to create a div for multiple project elements
 function displayProjects(image1, image2, image3, image4, name, tag1, tag2, tag3, tag4, demo, source) {
   const projectDiv = document.createElement('div');
-
   projectDiv.classList.add('project-div');
 
   // Build the HTML for the project
   let carouselSlides = '';
-
+  let showLeftButton = false;
+  let showRightButton = false;
+  
+  // Count the number of images
+  let imageCount = 0;
+  
   // Add a slide for each image if it exists
   if (image1) {
     carouselSlides += `
       <li class="carousel_slide current_slide">
         <img class="carousel_image" src="${image1}" alt="project_img">
       </li>`;
+    imageCount++;
   }
   if (image2) {
     carouselSlides += `
       <li class="carousel_slide">
         <img class="carousel_image" src="${image2}" alt="project_img">
       </li>`;
+    imageCount++;
   }
   if (image3) {
     carouselSlides += `
       <li class="carousel_slide">
         <img class="carousel_image" src="${image3}" alt="project_img">
       </li>`;
+    imageCount++;
   }
   if (image4) {
     carouselSlides += `
       <li class="carousel_slide">
         <img class="carousel_image" src="${image4}" alt="project_img">
       </li>`;
+    imageCount++;
   }
 
-  projectDiv.innerHTML = `
-    <div class="project-bg"></div>
-    
+  // Determine if buttons should be shown
+  showLeftButton = imageCount > 1;
+  showRightButton = imageCount > 1;
+
+  let demoButton = '';
+  if(demo) {
+    demoButton += `
+    <button class="project-btn"><a href="${demo}" target="_blank">Demo</a></button>
+    `
+  }
+
+    //tags
+    let tagList = '';
+    if (tag1) {
+      tagList+= `
+        <p>${tag1}</p>
+      `
+    }
+    if (tag2) {
+      tagList+= `
+        <p>${tag2}</p>
+      `
+    }
+    if (tag3) {
+      tagList+= `
+        <p>${tag3}</p>
+      `
+    }
+    if (tag4) {
+      tagList+= `
+        <p>${tag4}</p>
+      `
+    }
+
+  projectDiv.innerHTML = `    
     <!-- carousel -->
     <div class="carousel">
-      <button class="carousel_button carousel_button--left">
+      <button class="carousel_button carousel_button--left ${showLeftButton ? '' : 'hidden'}">
         <i class="fa-solid fa-chevron-left"></i>
       </button>
       <div class="flex flex-row carousel_track-container">
@@ -269,7 +309,7 @@ function displayProjects(image1, image2, image3, image4, name, tag1, tag2, tag3,
           ${carouselSlides}
         </ul>
       </div>
-      <button class="carousel_button carousel_button--right">
+      <button class="carousel_button carousel_button--right ${showRightButton ? '' : 'hidden'}">
         <i class="fa-solid fa-chevron-right"></i>
       </button>
     </div>
@@ -277,20 +317,18 @@ function displayProjects(image1, image2, image3, image4, name, tag1, tag2, tag3,
     <div class="flex flex-row space-between hat">
       <h3>${name}</h3>
       <div class="flex flex-row hatp gap-5">
-        <p>${tag1}</p>
-        <p>${tag2}</p>
-        <p>${tag3}</p>
-        <p>${tag4}</p>
+        ${tagList}
       </div>
     </div>
 
     <div class="flex flex-row gap">
-      <button class="project-btn"><a href="${demo}" target="_blank">Demo</a></button>
+    ${demoButton}
       <button class="project-btn"><a href="${source}" target="_blank">Source</a></button>
     </div>
   `;
   projectContainer.appendChild(projectDiv);
 }
+
 
 // Fetch and display projects
 getProjects(URL);
