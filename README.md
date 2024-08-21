@@ -18,9 +18,9 @@ Hello! I’m Dupanshu, a Software Developer student with a strong foundation in 
 This portfolio is inspired by 
 - [Britanny Chaing v1 portfolio](https://v1.brittanychiang.com/) which showcases a clean and modern design approach.
 - [CODEPEN](https://codepen.io/) from where the hover effect for project section is taken.
-- [Internal API](https://github.com/Dupanshu/cdn-projects) where I used <ins>internal API</ins> creating a JSON file to showcase my projects using JavaScript
+- [Custom API](https://github.com/Dupanshu/cdn-projects) where I used <ins>Custom API</ins> creating a JSON file to showcase my projects using JavaScript
 ```JavaScript
-// internal api link
+// Custom api link
 const URL = 'https://cdn.jsdelivr.net/gh/dupanshu/cdn-projects/projects.json';
 
 async function getProjects(endpoint) {
