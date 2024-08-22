@@ -20,180 +20,202 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dupanshu/cdn@master/reset.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Dupanshu/cdn@master/utils.css">
     <link rel="stylesheet" href="./assets/css/index.css">
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const delay = 3000;
+
+        function hideLoadingScreen() {
+          const loadingScreen = document.getElementById('loading-screen');
+          const mainContent = document.getElementById('main-content');
+
+          loadingScreen.style.display = 'none';
+          mainContent.style.display = 'block !important';
+        }
+        setTimeout(hideLoadingScreen, delay);
+      });
+    </script>
     <script src="./assets/script/app.js" type="module"></script>
   </head>
-  <body class="flex flex-column light-theme">
+  <body class="flex flex-column">
     <!--
     Ahh..., looking at the source code. Be sure to checkout my other content or 
     reach out to talk in general about coading and stuff - Dupanshu
     -->
-    <header>
-      <div class="container flex flex-row space-between header">
-        <h2>Dupanshu</h2>
-        <div class="flex flex-row center">
-          <nav>
-            <ul class="nav-list">
-              <li><a href="#about">About</a></li>
-              <!-- <li><a href="#passion">Passion</a></li>
-              <li><a href="#experience">Experience</a></li> -->
-              <li><a href="#projects">Work</a></li>
-              <li><a href="#resume">Resume</a></li>
-              <li><a href="#reachout">Contact</a></li>
-            </ul>
-          </nav>
-          <button class="theme child-div-center"><i class="fa-solid fa-moon"></i></button>
-        </div>
-      </div>
-    </header>
+    <!-- loading screen -->
+    <div id="loading-screen">
+      <div class="loader child-div-center"><h1>DR</h1></div>
+    </div>
 
-    <main>
-      
-      <!-- banner -->
-      <div class="banner">
-        <div class="overlay1 child-div-center">
-          <div class="banner-txt">
-            <h1>Hi, I'm Dupanshu</h1>
-            <p>Full-stack Developer & Lifelong Learner</p>
+    <!-- main content -->
+    <div id="main-content">
+      <header>
+        <div class="container flex flex-row space-between header">
+          <h2>Dupanshu</h2>
+          <div class="flex flex-row center">
+            <nav>
+              <ul class="nav-list">
+                <li><a href="#about">About</a></li>
+                <!-- <li><a href="#passion">Passion</a></li>
+                <li><a href="#experience">Experience</a></li> -->
+                <li><a href="#projects">Work</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#reachout">Contact</a></li>
+              </ul>
+            </nav>
+            <button class="theme child-div-center"><i class="fa-solid fa-moon"></i></button>
           </div>
         </div>
-        <a href="#about"><i class="fa-solid fa-chevron-down clickable-overlay"></i></a>
-      </div>
-
-      <!-- this section defines about me-->
-      <section class="about" id="about">
-        <div class="container inside-about child-div-center">
-          <h1>Know More About Me</h1>
-          <div class="flex flex-row about-box">
-            <p>
-              Hello, I'm Dupanshu, a passionate software developer with an year of experience in both Full-stack development. I've tackled 
-              exciting projects that showcase my ability to create streamlined and 
-              user-friendly applications. While I'm actively learning new skills 
-              on my own, my core expertise lies in developing robust solutions and 
-              optimizing existing systems. I'm excited to offer my expertise in 
-              developing innovative applications and enhancing existing systems 
-              to make an impact.
-              <span>
-                When I'm not on computer, I enjoy cooking or learning new skills 
-                and I love playing Vollyball.
-              </span>
-            </p>
-            <img 
-              src="./assets/media/headshot2.jpg"
-              alt="Head-Shot Image"
-              title="Profile Image">
+      </header>
+  
+      <main>
+        
+        <!-- banner -->
+        <div class="banner">
+          <div class="overlay1 child-div-center">
+            <div class="banner-txt">
+              <h1>Hi, I'm Dupanshu</h1>
+              <p>Full-stack Developer & Lifelong Learner</p>
+            </div>
           </div>
-          <div class="tldr">
-            <h2>Too Long; Didn't Read?</h2>
-            <div class="flex flex-row space-between"> 
-              <div class="icons-tldr child-div-center">
-                <i class="fa-solid fa-mug-hot"></i>
-                <p>Full-stack Developer</p>
-              </div>
-              <div class="icons-tldr child-div-center">
-                <i class="fa-solid fa-satellite"></i>
-                <p>Science Enthusiast</p>
-              </div>
-              <div class="icons-tldr child-div-center">
-                <i class="fa-solid fa-volleyball"></i>
-                <p>Love outdoor Sports</p>
+          <a href="#about"><i class="fa-solid fa-chevron-down clickable-overlay"></i></a>
+        </div>
+  
+        <!-- this section defines about me-->
+        <section class="about" id="about">
+          <div class="container inside-about child-div-center">
+            <h1>Know More About Me</h1>
+            <div class="flex flex-row about-box">
+              <p>
+                Hello, I'm Dupanshu, a passionate software developer with an year of experience in both Full-stack development. I've tackled 
+                exciting projects that showcase my ability to create streamlined and 
+                user-friendly applications. While I'm actively learning new skills 
+                on my own, my core expertise lies in developing robust solutions and 
+                optimizing existing systems. I'm excited to offer my expertise in 
+                developing innovative applications and enhancing existing systems 
+                to make an impact.
+                <span>
+                  When I'm not on computer, I enjoy cooking or learning new skills 
+                  and I love playing Vollyball.
+                </span>
+              </p>
+              <img 
+                src="./assets/media/headshot2.jpg"
+                alt="Head-Shot Image"
+                title="Profile Image">
+            </div>
+            <div class="tldr">
+              <h2>Too Long; Didn't Read?</h2>
+              <div class="flex flex-row space-between"> 
+                <div class="icons-tldr child-div-center">
+                  <i class="fa-solid fa-mug-hot"></i>
+                  <p>Full-stack Developer</p>
+                </div>
+                <div class="icons-tldr child-div-center">
+                  <i class="fa-solid fa-satellite"></i>
+                  <p>Science Enthusiast</p>
+                </div>
+                <div class="icons-tldr child-div-center">
+                  <i class="fa-solid fa-volleyball"></i>
+                  <p>Love outdoor Sports</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <!-- this section defines my passion-->
-     <!--  <section class="passion" id="passion">
-        <h1>What I do?</h1>
-      </section> -->
-
-      <!-- knowledge of languages-->
-      <!-- <section class="experience" id="experience">
-        <h1>Experience</h1>
-      </section> -->
-
-      <!-- this section defines projects-->
-      <section class="projects" id="projects">
-        <div class="inside-projects">
-          <h1>My Projects</h1>
-          <div class="project-container grid">
-
-            <!-- projects append here -->
-
+        </section>
+  
+        <!-- this section defines my passion-->
+       <!--  <section class="passion" id="passion">
+          <h1>What I do?</h1>
+        </section> -->
+  
+        <!-- knowledge of languages-->
+        <!-- <section class="experience" id="experience">
+          <h1>Experience</h1>
+        </section> -->
+  
+        <!-- this section defines projects-->
+        <section class="projects" id="projects">
+          <div class="inside-projects">
+            <h1>My Projects</h1>
+            <div class="project-container grid">
+  
+              <!-- projects append here -->
+  
+            </div>
           </div>
-        </div>
-      </section>
-
-      <!-- resume-->
-      <section class="resume-link" id="resume">
-        <div class="overlay2 child-div-center">
-          <h1>Checkout my Résumé!</h1>
-          <a href="https://dupanshu.github.io/resume/" target="_blank">Grab A Copy</a>
-        </div>
-      </section>
-
-      <!-- get in touch-->
-      <section class="get-in-touch" id="reachout">
-        <div class="container child-div-center">
-          <h1>Get in touch!</h1>
-          <p>Got a great idea or just want to chat? Drop me a message-I'd love to hear from you!</p>
-
-          <!-- form structure -->
-          <form id="my-form" action="https://api.web3forms.com/submit" method="POST"
-          name="get-in-touch" class="child-div-center">
-          <input type="hidden" name="access_key" value="1915566a-a26b-4476-9e13-359fe09d64ac">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <input type="text" name="_subject" placeholder="Subject of email">
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-          </form>
-
-          <div class="thankyou-msg">
-            <p>Thank you for 
-              reaching out! I appreciate your message and will get back to you 
-              as soon as possible. Looking forward to connecting with you soon!
-            </p>
+        </section>  
+  
+        <!-- resume-->
+        <section class="resume-link" id="resume">
+          <div class="overlay2 child-div-center">
+            <h1>Checkout my Résumé!</h1>
+            <a href="https://dupanshu.github.io/resume/" target="_blank">Grab A Copy</a>
           </div>
-
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="container footer-container flex flex-column">
-        <div class="flex flex-row space-between">
-          <div class="flex flex-row">
-            <a href="https://www.linkedin.com/in/dupanshu-dupanshu-7556a1271?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BcydEECUIT9CXlHdAK0VpdA%3D%3D" 
-            target="_blank"><i class="fa-brands fa-linkedin 
-              footer-icon"></i></a>
-            <a href="mailto:dupanshurangray@gmail.com" target="_blank"><i class="fa-solid fa-envelope 
-              footer-icon"></i></a>
-            <a href="https://github.com/Dupanshu" target="_blank"><i class="fa-brands fa-github 
-              footer-icon"></i></a>
-            <a href="https://www.facebook.com/dupanshu.rangray.5" target="_blank"><i class="fa-brands fa-facebook 
-              footer-icon"></i></a>
-            <a href="https://medium.com/@dupanshurangray" target="_blank"><i class="fa-brands fa-medium 
-              footer-icon"></i></a>
+        </section>
+  
+        <!-- get in touch-->
+        <section class="get-in-touch" id="reachout">
+          <div class="container child-div-center">
+            <h1>Get in touch!</h1>
+            <p>Got a great idea or just want to chat? Drop me a message-I'd love to hear from you!</p>
+  
+            <!-- form structure -->
+            <form id="my-form" action="https://api.web3forms.com/submit" method="POST"
+            name="get-in-touch" class="child-div-center">
+            <input type="hidden" name="access_key" value="1915566a-a26b-4476-9e13-359fe09d64ac">
+              <input type="text" name="name" placeholder="Your Name" required>
+              <input type="email" name="email" placeholder="Your Email" required>
+              <input type="text" name="_subject" placeholder="Subject of email">
+              <textarea name="message" placeholder="Your Message" required></textarea>
+              <button type="submit">Send Message</button>
+            </form>
+  
+            <div class="thankyou-msg">
+              <p>Thank you for 
+                reaching out! I appreciate your message and will get back to you 
+                as soon as possible. Looking forward to connecting with you soon!
+              </p>
+            </div>
+  
           </div>
-
+        </section>
+      </main>
+  
+      <footer>
+        <div class="container footer-container flex flex-column">
+          <div class="flex flex-row space-between">
+            <div class="flex flex-row">
+              <a href="https://www.linkedin.com/in/dupanshu-dupanshu-7556a1271?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BcydEECUIT9CXlHdAK0VpdA%3D%3D" 
+              target="_blank"><i class="fa-brands fa-linkedin 
+                footer-icon"></i></a>
+              <a href="mailto:dupanshurangray@gmail.com" target="_blank"><i class="fa-solid fa-envelope 
+                footer-icon"></i></a>
+              <a href="https://github.com/Dupanshu" target="_blank"><i class="fa-brands fa-github 
+                footer-icon"></i></a>
+              <a href="https://www.facebook.com/dupanshu.rangray.5" target="_blank"><i class="fa-brands fa-facebook 
+                footer-icon"></i></a>
+              <a href="https://medium.com/@dupanshurangray" target="_blank"><i class="fa-brands fa-medium 
+                footer-icon"></i></a>
+            </div>
+  
+            <div class="copyright">
+              <i class="fa-brands fa-space-awesome"></i>
+            </div>
+  
+            <!-- docs part -->
+            <div class="go-up">
+              <a href="https://github.com/Dupanshu/portfolio/blob/main/README.md"
+               target="_blank" data-tool-tip="README">Docs</a>
+              <p>Thanks for Visiting &#128512;</p>
+            </div>
+          </div>
+  
           <div class="copyright">
-            <i class="fa-brands fa-space-awesome"></i>
-          </div>
-
-          <!-- docs part -->
-          <div class="go-up">
-            <a href="https://github.com/Dupanshu/portfolio/blob/main/README.md"
-             target="_blank" data-tool-tip="README">Docs</a>
-            <p>Thanks for Visiting &#128512;</p>
+            <!-- bottom line -->
+            <p>&copy; Dupanshu 2024</p>
           </div>
         </div>
-
-        <div class="copyright">
-          <!-- bottom line -->
-          <p>&copy; Dupanshu 2024</p>
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
   </body>
 </html>

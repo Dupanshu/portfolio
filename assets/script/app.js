@@ -15,6 +15,30 @@ const thankyouPart = document.querySelector('.get-in-touch .thankyou-msg');
 const myFormPara = document.querySelector('.get-in-touch p');
 const projectContainer = document.querySelector('.projects .inside-projects .project-container');
 
+
+//system preferences theme
+const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+// Check if the user prefers light mode
+const prefersLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+window.addEventListener('load', () => {
+  if (prefersDarkMode) {
+    body.classList.toggle('dark-theme');
+    themeButton.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    themeButton.style.color = "#f90";
+  } else if (prefersLightMode) {
+    body.classList.toggle('light-theme');
+  } else {
+    body.classList.toggle('light-theme');
+  }
+
+  // banner text animations
+  bannerH1.classList.add('animateH1');
+  bannerText.classList.add('textAnimate');
+  header.classList.add('animateH1');
+});
+
 // light and dark theme changer
 themeButton.addEventListener('click', () => {
   body.classList.toggle('dark-theme');
@@ -80,13 +104,6 @@ h2.addEventListener('click', () => {
 
 footerI.addEventListener('click', () => {
   window.scrollTo(0, 0);
-});
-
-
-// banner text animations
-window.addEventListener('load', () => {
-  bannerH1.classList.add('animateH1');
-  bannerText.classList.add('textAnimate');
 });
 
 
