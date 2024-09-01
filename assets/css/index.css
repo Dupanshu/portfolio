@@ -61,6 +61,7 @@ body {
 }
 
 #loading-screen {
+  visibility: hidden;/*  */
   position: fixed;
   top: 0;
   left: 0;
@@ -351,12 +352,14 @@ header {
 .about-box {
   justify-content: center;
   align-items: center;
+  height: 262px;
 }
 
 .about .inside-about .about-box img{
   width: auto;
-  height: 229px;
-  border-radius: 14px;
+  height: 100%;
+  width: auto;
+  border-radius: 6px;
 }
 
 .about .inside-about .about-box p {
@@ -364,8 +367,8 @@ header {
   word-wrap: break-word;
   width: 55ch;
   margin-right: 70px;
-  line-height: 21px;
-  letter-spacing: 0.2px;
+  line-height: 22px;
+  letter-spacing: 1px;
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
 }

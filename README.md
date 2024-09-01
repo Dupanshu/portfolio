@@ -55,3 +55,4 @@ function displayProjects(parameters) {
   projectContainer.appendChild(projectDiv);
 }
 ```
+&copy; Dupanshu 2024
