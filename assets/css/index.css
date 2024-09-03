@@ -61,6 +61,7 @@ body {
 }
 
 #loading-screen {
+  visibility: hidden;
   position: fixed;
   top: 0;
   left: 0;
@@ -778,7 +779,9 @@ footer {
   color: rgba(255 255 255 / 80%);
   text-align: center;
   font-size: 16px;
+  margin-top: 14px;
   padding: 14px 0px;
+  border-top: 1px solid rgba(255 255 255 / 30%);
 }
 
 .middle-fa {
@@ -789,8 +792,8 @@ footer {
 
 .middle-fa .fa-space-awesome {
   font-size: 27px !important;
-  width: 30px;
   position: relative;
+  transition: all 250ms ease-in-out;
 }
 
 .middle-fa .fa-space-awesome::after {
@@ -803,11 +806,16 @@ footer {
   transform: translate(-50%, 20px);
   white-space: nowrap;
   font-family: "Open Sans", sans-serif;
-  transition: all 150ms ease-in-out;
+}
+
+.middle-fa .fa-space-awesome:hover {
+  transform: translateY(-2px);
 }
 
 .middle-fa .fa-space-awesome:hover::after {
   visibility: visible;
+  transform: translate(-50%, 20px);
+  transition: all 250ms ease-in-out;
 }
 
 .footer-container .space-between {
