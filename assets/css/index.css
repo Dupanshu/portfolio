@@ -337,7 +337,7 @@ header {
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .about {
   background-color: var(--section-clr);
-  padding: 60px 0px;
+  padding: 40px 0px;
   transition: all 150ms ease-in-out;
 }
 
@@ -346,6 +346,8 @@ header {
   letter-spacing: 0.4px;
   font-size: 32px;
   margin-bottom: 30px;
+  padding: 14px;
+  border-bottom: 2px solid #42806E;
 }
 
 .about-box {
@@ -439,7 +441,7 @@ header {
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .projects {
   background-color: var(--bg);
-  padding: 60px 0px;
+  padding: 40px 0px;
   transition: all 150ms ease-in-out;
 }
 
@@ -449,11 +451,13 @@ header {
 }
 
 .projects .inside-projects h1 {
+  width: 206px;
   font-weight: 400;
   letter-spacing: 0.4px;
   font-size: 32px;
-  margin-bottom: 30px;
-  text-align: center;
+  margin: 0 auto 22px auto;
+  padding: 14px;
+  border-bottom: 2px solid #42806E;
 }
 
 .projects .inside-projects .project-container {
