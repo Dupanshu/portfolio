@@ -286,9 +286,15 @@ function displayProjects(image1, image2, image3, image4, name, tag1, tag2, tag3,
   showRightButton = imageCount > 1;
 
   let demoButton = '';
+  let sourceButton = '';
   if(demo) {
     demoButton += `
     <a href="${demo}" target="_blank"><button class="project-btn">Demo</button></a>
+    `
+  }
+  if(source) {
+    sourceButton += `
+    <a href="${source}" target="_blank"><button class="project-btn">Source</button></a>
     `
   }
 
@@ -332,7 +338,7 @@ function displayProjects(image1, image2, image3, image4, name, tag1, tag2, tag3,
     </div>
 
     <div class="flex flex-row space-between hat">
-      <h3>${name}</h3>
+      <h3 style="font-size: clamp(15px, 1vw, 20px);">${name}</h3>
       <div class="flex flex-row hatp gap-5">
         ${tagList}
       </div>
@@ -340,7 +346,7 @@ function displayProjects(image1, image2, image3, image4, name, tag1, tag2, tag3,
 
     <div class="flex flex-row gap">
     ${demoButton}
-      <a href="${source}" target="_blank"><button class="project-btn">Source</button></a>
+    ${sourceButton}
     </div>
   `;
   projectContainer.appendChild(projectDiv);
