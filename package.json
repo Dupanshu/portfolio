@@ -8,8 +8,16 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "### About Hello! I’m Dupanshu, a Software Developer student with a strong foundation in C# for backend development and JavaScript for frontend development. I am recognized for my quick learning abilities, strong problem-solving skills, and a passion for innovation. I am eager to apply my technical expertise in a dynamic software development role.",
   "devDependencies": {
     "lite-server": "^2.6.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dupanshu/portfolio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Dupanshu/portfolio/issues"
+  },
+  "homepage": "https://github.com/Dupanshu/portfolio#readme"
 }

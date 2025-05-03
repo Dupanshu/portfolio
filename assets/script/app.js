@@ -191,7 +191,7 @@ const initializeCarousels = () => {
 };
 
 // Method to fetch projects from the CDN link
-const URL = 'https://cdn.jsdelivr.net/gh/dupanshu/cdn-projects/projects.json';
+const URL = `https://cdn.jsdelivr.net/gh/dupanshu/cdn-projects/projects.json??timestamp=${new Date().getTime()}`;
 
 async function getProjects(endpoint) {
   try {
