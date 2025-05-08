@@ -14,6 +14,7 @@ const myForm = document.getElementById('my-form');
 const thankyouPart = document.querySelector('.get-in-touch .thankyou-msg');
 const myFormPara = document.querySelector('.get-in-touch p');
 const projectContainer = document.querySelector('.projects .inside-projects .project-container');
+const projectSec = document.querySelector('.projects .inside-projects');
 
 
 //system preferences theme
@@ -238,10 +239,12 @@ async function getProjects(endpoint) {
   }
 }
 
+let setId = Number(0);
 // Method to create a div for multiple project elements
 function displayProjects(image1, image2, image3, image4, name, tag1, tag2, tag3, tag4, demo, source) {
   const projectDiv = document.createElement('div');
   projectDiv.classList.add('project-div');
+  projectDiv.id = `project${setId}`;
 
   // Build the HTML for the project
   let carouselSlides = '';
@@ -289,7 +292,7 @@ function displayProjects(image1, image2, image3, image4, name, tag1, tag2, tag3,
   let sourceButton = '';
   if(demo) {
     demoButton += `
-    <a href="${demo}" target="_blank"><button class="project-btn">Demo</button></a>
+    <a href="${demo}" target="_blank" class="demo"><button class="project-btn">Demo</button></a>
     `
   }
   if(source) {
@@ -350,8 +353,31 @@ function displayProjects(image1, image2, image3, image4, name, tag1, tag2, tag3,
     </div>
   `;
   projectContainer.appendChild(projectDiv);
+  setId++;
 }
 
 
 // Fetch and display projects
 getProjects(URL);
+
+
+/* Iframe for projects */
+function showInterface (projectId) {
+
+  const projectInterface = document.createElement('iframe');
+  projectInterface.classList.add('project-interface');
+
+  const selectedProject = document.getElementById(projectId);
+  projectInterface.src = `${selectedProject.children[2].children[0].href}`;
+  selectedProject.children[2].children[0].classList.contains('demo') ? body.replaceChildren(projectInterface) : console.log("source reference");
+}
+
+// Error : have to click twice to get the interface
+const observer = new MutationObserver(function(m) {
+  if(m[0].addedNodes[0].nodeName === "DIV") {
+    Array.from(document.querySelectorAll('.project-div')).forEach(c => c.addEventListener ('click', e => showInterface(e.currentTarget.id)));
+  }
+});
+observer.observe(projectContainer, {childList: true});
+//observer.disconnect();
+
