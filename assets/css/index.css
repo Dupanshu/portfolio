@@ -112,8 +112,8 @@ body {
   animation-fill-mode: both;
   -webkit-animation-name: fadeInAnimation;
   animation-name: fadeInAnimation;
-  -webkit-animation-delay: 2s;
-  animation-delay: 2s;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
 }
 
 @keyframes fadeInAnimation {
@@ -125,7 +125,7 @@ body {
   }
 }
 
-.overlay1, .overlay2 {
+.overlay1, .overlay2, .overlay3 {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%,
   rgba(0, 0, 0, 0.73) 17%,
    rgba(0, 0, 0, 0.66) 35%,
@@ -621,14 +621,22 @@ header {
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 body .project-interface {
   position: absolute;
-  top: 50%;
+  /* top: 50%; */
   left: 50%;
   transform: translate(-50%, -50%);
   height: calc(100vh - 80px);
-  width: 80%;
+  width: 70%;
   z-index: 5;
 }
 
+.overlay3  {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 5;
+}
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
                     /*resume-link*/

@@ -362,17 +362,34 @@ getProjects(URL);
 
 
 /* Iframe for projects */
+// Error : have to click twice to get the interface
+//Fixed using Mutation observer
 function showInterface (projectId) {
 
+  const overlay = document.createElement('div');
   const projectInterface = document.createElement('iframe');
+  overlay.classList.add('overlay3');
   projectInterface.classList.add('project-interface');
 
   const selectedProject = document.getElementById(projectId);
   projectInterface.src = `${selectedProject.children[2].children[0].href}`;
-  selectedProject.children[2].children[0].classList.contains('demo') ? body.replaceChildren(projectInterface) : console.log("source reference");
+  if(selectedProject.children[2].children[0].classList.contains('demo')) {
+    if (body.querySelector('body .project-interface') !== null) {
+      body.removeChild(document.querySelector('body .overlay3'));
+      body.removeChild(document.querySelector('body .project-interface'));
+    }
+    body.appendChild(overlay);
+    body.appendChild(projectInterface);
+    body.style.overflow = 'hidden';
+    //calculate properly
+    let top = eval(((window.innerHeight/2) + window.scrollY));
+    document.querySelector('body .overlay3').style.top = `${top}px`;
+    document.querySelector('body .project-interface').style.top = `${top + 20}px`;
+  } else {
+    console.log("source reference");
+  }
 }
 
-// Error : have to click twice to get the interface
 const observer = new MutationObserver(function(m) {
   if(m[0].addedNodes[0].nodeName === "DIV") {
     Array.from(document.querySelectorAll('.project-div')).forEach(c => c.addEventListener ('click', e => showInterface(e.currentTarget.id)));
@@ -380,4 +397,17 @@ const observer = new MutationObserver(function(m) {
 });
 observer.observe(projectContainer, {childList: true});
 //observer.disconnect();
+
+const observer2 = new MutationObserver(function(m) {
+  if(m[0].addedNodes[0].nodeName === "IFRAME") {
+    const rect = document.querySelector('iframe').getBoundingClientRect();
+
+    for (const key in rect) {
+      if (typeof rect[key] !== "function") {
+        console.log(`${key} : ${rect[key]}`); }
+    }
+  }
+});
+
+observer2.observe(body, {childList: true});
 
