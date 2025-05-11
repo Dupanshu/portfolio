@@ -533,6 +533,7 @@ header {
   width: auto;
   height: 100%;
   margin: 0 auto;
+  cursor: pointer;
 }
 
 .projects .inside-projects .project-container .project-div .carousel .carousel_button {
@@ -625,7 +626,7 @@ body .project-interface {
   left: 50%;
   transform: translate(-50%, -50%);
   height: calc(100vh - 80px);
-  width: 70%;
+  width: 80%;
   z-index: 5;
 }
 

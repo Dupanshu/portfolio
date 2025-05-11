@@ -380,7 +380,7 @@ function showInterface (projectId) {
     }
     body.appendChild(overlay);
     body.appendChild(projectInterface);
-    body.style.overflow = 'hidden';
+    body.style.overflowY = 'hidden';
     //calculate properly
     let top = eval(((window.innerHeight/2) + window.scrollY));
     document.querySelector('body .overlay3').style.top = `${top}px`;
@@ -398,14 +398,28 @@ const observer = new MutationObserver(function(m) {
 observer.observe(projectContainer, {childList: true});
 //observer.disconnect();
 
-const observer2 = new MutationObserver(function(m) {
-  if(m[0].addedNodes[0].nodeName === "IFRAME") {
-    const rect = document.querySelector('iframe').getBoundingClientRect();
+const observer2 = new MutationObserver(function() {
+  if(body.children[body.childElementCount -1].nodeName === "IFRAME") {
+    document.addEventListener('click', (event) => {
+      const rect = document.querySelector('iframe').getBoundingClientRect();
 
-    for (const key in rect) {
-      if (typeof rect[key] !== "function") {
-        console.log(`${key} : ${rect[key]}`); }
-    }
+      /* for (const key in rect) {
+        if (typeof rect[key] !== "function") {
+          console.log(`${key} : ${rect[key]}`); }
+      } */
+      const isOutsideIframe = (
+        event.clientX < rect.left ||
+        event.clientX > rect.right ||
+        event.clientY < rect.top ||
+        event.clientY > rect.bottom
+      );
+
+      if (isOutsideIframe) {
+        body.removeChild(document.querySelector('body .overlay3'));
+        body.removeChild(document.querySelector('body .project-interface'));
+        body.style.overflowY = 'scroll';
+      }
+    });
   }
 });
 
