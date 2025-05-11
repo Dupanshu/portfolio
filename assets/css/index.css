@@ -29,6 +29,7 @@
   --project-bg: rgb(66 128 110 / 20%);
   --border-theme: rgba(0 0 0 / 30%);
   --icon-bg: rgb(66 128 110 / 50%);
+  --go-to-top: rgba(0 0 0 / 80%);
 }
 
 .dark-theme {
@@ -43,6 +44,7 @@
   --project-bg: #272831;
   --border-theme: rgba(255 255 255 / 30%);
   --icon-bg: rgb(66 128 110 / 20%);
+  --go-to-top: rgba(255 255 255 / 80%);
 }
 
 /* Text selection color */
@@ -125,7 +127,7 @@ body {
   }
 }
 
-.overlay1, .overlay2, .overlay3 {
+.overlay1, .overlay2 {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%,
   rgba(0, 0, 0, 0.73) 17%,
    rgba(0, 0, 0, 0.66) 35%,
@@ -249,8 +251,8 @@ header {
   animation-fill-mode: both;
   -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;
-  -webkit-animation-delay: 3.1s;
-  animation-delay: 3.1s;
+  -webkit-animation-delay: 3s;
+  animation-delay: 3s;
 }
 
 @keyframes fadeInDown {
@@ -474,6 +476,7 @@ header {
   z-index: 1;
   padding: 8px 10px;
   display: inline-block;
+  cursor: pointer;
 }
 
 .projects .inside-projects .project-container .project-div::after {
@@ -582,6 +585,7 @@ header {
 .projects .inside-projects .project-container .project-div .hat .hatp p {
   background-color: #42806E;
   color: var(--footer-txt);
+  height: 24px;
   line-height: 24px;
   font-size: 11px;
   font-family: "Open Sans", sans-serif;
@@ -616,6 +620,31 @@ header {
   background-color: #42806E;
 }
 
+/* data tool tip */
+
+.projects .inside-projects .project-container .project-div[data-tool-tip]::before {
+  content: attr(data-tool-tip);
+  visibility: hidden;
+  text-align: center;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 10%;
+  background-color: #fff;
+  padding: 13px;
+  color: #000;
+  border-radius: 5px;
+  font-size: 13px;
+  white-space: nowrap;
+  visibility: hidden;
+  transition: top ease-out 150ms;
+}
+
+.projects .inside-projects .project-container .project-div[data-tool-tip]:hover::before {
+  visibility: visible;
+  top: -10%;
+}
+
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
                     /*project-interface*/
@@ -631,6 +660,7 @@ body .project-interface {
 }
 
 .overlay3  {
+  background-color: rgba(100 100 150 / 30%);
   position: absolute;
   width: 100%;
   height: 100vh;
@@ -831,12 +861,12 @@ footer {
 }
 
 /* data tool tip */
-a[data-tool-tip] {
+footer a[data-tool-tip] {
   position: relative;
   display: inline-block;
 }
 
-a[data-tool-tip]::after {
+footer a[data-tool-tip]::after {
   content: attr(data-tool-tip);
   visibility: hidden;
   position: absolute;
@@ -853,14 +883,14 @@ a[data-tool-tip]::after {
   transition: bottom ease-out 150ms;
 }
 
-a[data-tool-tip]:hover::after {
+footer a[data-tool-tip]:hover::after {
   visibility: visible;
   bottom: 10%;
 }
 
 
 .middle-fa {
-  color: rgba(255 255 255 / 80%);
+  color: var(--go-to-top);
   text-align: center;
   position: fixed;
   bottom: 10px;

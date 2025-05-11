@@ -294,6 +294,9 @@ function displayProjects(image1, image2, image3, image4, name, tag1, tag2, tag3,
     demoButton += `
     <a href="${demo}" target="_blank" class="demo"><button class="project-btn">Demo</button></a>
     `
+    projectDiv.setAttribute("data-tool-tip", "Double-click to open quick view");
+  } else {
+    projectDiv.setAttribute("data-tool-tip", "No quick view available");
   }
   if(source) {
     sourceButton += `
@@ -392,7 +395,7 @@ function showInterface (projectId) {
 
 const observer = new MutationObserver(function(m) {
   if(m[0].addedNodes[0].nodeName === "DIV") {
-    Array.from(document.querySelectorAll('.project-div')).forEach(c => c.addEventListener ('click', e => showInterface(e.currentTarget.id)));
+    Array.from(document.querySelectorAll('.project-div')).forEach(c => c.addEventListener ('dblclick', e => showInterface(e.currentTarget.id)));
   }
 });
 observer.observe(projectContainer, {childList: true});
@@ -403,10 +406,6 @@ const observer2 = new MutationObserver(function() {
     document.addEventListener('click', (event) => {
       const rect = document.querySelector('iframe').getBoundingClientRect();
 
-      /* for (const key in rect) {
-        if (typeof rect[key] !== "function") {
-          console.log(`${key} : ${rect[key]}`); }
-      } */
       const isOutsideIframe = (
         event.clientX < rect.left ||
         event.clientX > rect.right ||
